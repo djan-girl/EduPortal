@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    EduPortal-Login
+{% endblock %}
+
+{% block content %}
+    <div class='login-container'>
+        <h2>Sign in to use EduPortal</h2>
+        <form method="POST">
+            {% csrf_token %}
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="black-button">Login</button>
+            <a href="{% url 'users:register' %}">
+                Don't have an account? Register here.
+            </a>
+        </form>
+    </div>
+{% endblock %}
+
+{% block footer%}
+    <div class="footer" style="position:fixed; bottom:0; width:100%;">
+        <h6>© 2026 EduPortal. All rights reserved.</h6>
+    </div>
+{% endblock %}

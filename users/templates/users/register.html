@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+    EduPortal-Register
+{% endblock %}
+
+{% block content %}
+    <div class='login-container'>
+        <h2>Register an account to use EduPortal</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password1" name="password1" required>
+
+            <label for="password_confirm">Confirm Password</label>
+            <input type="password" id="password2" name="password2" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" required>
+             
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" required>
+
+            <button type="submit" class="black-button">Register</button>
+        </form>
+        <a href="{% url 'users:login' %}">
+            Already have an account? login here.
+        </a>
+    </div>
+{% endblock %}
+
+{% block footer%}
+    <div class="footer">
+        <h6>© 2026 EduPortal. All rights reserved.</h6>
+    </div>
+{% endblock %}
